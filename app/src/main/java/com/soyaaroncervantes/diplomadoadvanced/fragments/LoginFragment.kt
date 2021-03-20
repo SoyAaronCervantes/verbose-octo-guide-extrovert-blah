@@ -12,11 +12,14 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputLayout
 import com.soyaaroncervantes.diplomadoadvanced.R
 
+const val USER_EMAIL = "asd@asd.com"
+const val USER_PASSWORD = "asdqwe123"
+
 class LoginFragment : Fragment() {
 
   lateinit var successFragment: SuccessFragment
   lateinit var errorFragment: ErrorFragment
-  private val userTest: Map<String, String> = mapOf( "asd@asd.com" to "asdqwe123" );
+  private val userTest: Map<String, String> = mapOf( USER_EMAIL to USER_PASSWORD );
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     return inflater.inflate(R.layout.fragment_login, container, false)
@@ -65,12 +68,8 @@ class LoginFragment : Fragment() {
 
       val fragmentManager = activity?.supportFragmentManager?.beginTransaction()
 
-      if ( checkEmail && checkPassword ) {
-        fragmentManager?.replace( R.id.container, successFragment );
-      } else {
-        fragmentManager?.replace( R.id.container, errorFragment );
-      }
-
+      val fragment = if ( checkEmail && checkPassword ) successFragment else errorFragment
+      fragmentManager?.replace( R.id.container, fragment );
       fragmentManager?.commit()
 
     }

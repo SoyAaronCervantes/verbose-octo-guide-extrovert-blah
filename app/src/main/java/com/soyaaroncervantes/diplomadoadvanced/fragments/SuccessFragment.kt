@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import com.google.android.material.button.MaterialButton
 import com.soyaaroncervantes.diplomadoadvanced.R
 
-class ErrorFragment : Fragment() {
+class SuccessFragment : Fragment() {
 
   lateinit var loginFragment: LoginFragment
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                             savedInstanceState: Bundle?): View? {
-    return inflater.inflate(R.layout.fragment_error, container, false)
+    return inflater.inflate(R.layout.fragment_success, container, false)
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,5 +33,4 @@ class ErrorFragment : Fragment() {
     }
 
   }
-
 }
